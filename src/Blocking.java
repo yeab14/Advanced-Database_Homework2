@@ -3,7 +3,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -66,7 +65,7 @@ public class Blocking {
 			int[] results = ps.executeBatch();
 			con.commit();
 			con.close();
-			System.out.println(Arrays.toString(results));
+			System.out.println("Inserted " + results.length + " rows into blocking_data");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -33,9 +33,17 @@ cd homework2
 ```
 
 3. JDBC jar is already under `lib/postgresql-42.2.18.jar` (same version the sheet mentions).
+4. Copy the env template and set your port:
 
-Defaults: `jdbc:postgresql://127.0.0.1:5432/adb_hw2` / user `hw2` / password `hw2`.  
-Override with `HW2_JDBC_URL`, `HW2_DB_USER`, `HW2_DB_PASSWORD`.
+```bash
+cp .env.example .env
+```
+
+On Windows: `copy .env.example .env`
+
+`.env` is not committed. `ConnectionFactory` reads it when you start a demo (real environment variables still win). The example file uses port **5432**. This PC's `.env` uses **5400**, because PostgreSQL 18.2 is installed there and the Windows service is missing. After a reboot on that machine, start the server with `schtasks /Run /TN hw2-postgres`.
+
+Defaults if `.env` is absent: `jdbc:postgresql://127.0.0.1:5432/adb_hw2` / user `hw2` / password `hw2`.
 
 ## Run the three demos
 
@@ -68,6 +76,7 @@ homework2/
   src/RestartBlocking.java
   src/NoLiveLocks.java
   src/ConnectionFactory.java
+  .env.example           # copy to .env (port, user, password)
   scripts/run.sh
   INSTRUCTOR.md          # short report for the instructor / slides outline
 ```
