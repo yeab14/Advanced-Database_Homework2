@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Same command as ./hw. Kept so older notes still work.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+exec "$ROOT/hw" "$@"

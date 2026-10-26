@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# macOS and Linux. From the homework2 folder:
+#   ./hw Blocking
+#   ./hw RestartBlocking
+#   ./hw NoLiveLocks
+#   ./hw all
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT"
+exec "$ROOT/scripts/run.sh" "$@"
